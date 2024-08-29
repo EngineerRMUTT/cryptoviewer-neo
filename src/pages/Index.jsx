@@ -9,10 +9,10 @@ const fetchTopAssets = async () => {
 };
 
 const Index = () => {
-  const [currentTime, setCurrentTime] = useState(new Date());
+  const [currentDateTime, setCurrentDateTime] = useState(new Date());
 
   useEffect(() => {
-    const timer = setInterval(() => setCurrentTime(new Date()), 1000);
+    const timer = setInterval(() => setCurrentDateTime(new Date()), 1000);
     return () => clearInterval(timer);
   }, []);
 
@@ -26,12 +26,15 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-yellow-200 p-4">
-      <div className="flex justify-between items-center mb-6 bg-black text-white p-3">
-        <h1 className="text-4xl font-black">
+      <div className="flex flex-col sm:flex-row justify-between items-center mb-6 bg-black text-white p-3">
+        <h1 className="text-4xl font-black mb-2 sm:mb-0">
           Top 50 Crypto Assets
           <span className="block text-lg font-normal mt-1">powered by iT'24</span>
         </h1>
-        <div className="text-lg">{currentTime.toLocaleTimeString()}</div>
+        <div className="text-lg text-center">
+          <div>{currentDateTime.toLocaleDateString('th-TH', { year: 'numeric', month: 'long', day: 'numeric' })}</div>
+          <div>{currentDateTime.toLocaleTimeString('th-TH')}</div>
+        </div>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {assets.map((asset) => (
