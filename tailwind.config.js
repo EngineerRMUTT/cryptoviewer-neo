@@ -51,6 +51,11 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        neobrutalism: {
+          yellow: '#FFFF00',
+          pink: '#FF69B4',
+          blue: '#00BFFF',
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
