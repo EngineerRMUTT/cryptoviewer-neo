@@ -40,8 +40,10 @@ const Index = () => {
         {assets.map((asset, index) => (
           <Link to={`/asset/${asset.id}`} key={asset.id} className="block">
             <div className={`border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-3 hover:bg-blue-200 transition-colors ${index % 2 === 0 ? 'bg-white' : 'bg-yellow-100'}`}>
-              <h2 className="text-xl font-black mb-2">{asset.name} <span className="text-lg font-bold">({asset.symbol})</span></h2>
-              <p className="text-base font-bold">Rank: {asset.rank}</p>
+              <div className="flex justify-between items-center mb-2">
+                <h2 className="text-xl font-black">{asset.name} <span className="text-lg font-bold">({asset.symbol})</span></h2>
+                <span className="text-base font-bold">Rank: {asset.rank}</span>
+              </div>
               <p className="text-sm">Price: ${parseFloat(asset.priceUsd).toFixed(2)}</p>
               <p className="text-sm">MCap: ${(parseFloat(asset.marketCapUsd) / 1e9).toFixed(2)}B</p>
             </div>
