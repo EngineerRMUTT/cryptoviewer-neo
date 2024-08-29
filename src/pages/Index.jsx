@@ -19,7 +19,10 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-yellow-200 p-4">
-      <h1 className="text-5xl font-black mb-6 text-center bg-black text-white p-3">Top 50 Crypto Assets</h1>
+      <h1 className="text-4xl font-black mb-6 text-center bg-black text-white p-3">
+        Top 50 Crypto Assets
+        <span className="block text-lg font-normal mt-1">powered by iT'24</span>
+      </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {assets.map((asset) => (
           <Link to={`/asset/${asset.id}`} key={asset.id} className="block">
