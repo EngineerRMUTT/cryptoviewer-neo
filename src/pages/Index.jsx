@@ -36,14 +36,14 @@ const Index = () => {
           <div>{currentDateTime.toLocaleTimeString('th-TH')}</div>
         </div>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        {assets.map((asset) => (
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+        {assets.map((asset, index) => (
           <Link to={`/asset/${asset.id}`} key={asset.id} className="block">
-            <div className="bg-white border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-3 hover:bg-blue-200 transition-colors">
-              <h2 className="text-lg font-bold mb-1">{asset.name} ({asset.symbol})</h2>
-              <p className="text-sm font-semibold">Rank: {asset.rank}</p>
-              <p className="text-xs">Price: ${parseFloat(asset.priceUsd).toFixed(2)}</p>
-              <p className="text-xs">MCap: ${(parseFloat(asset.marketCapUsd) / 1e9).toFixed(2)}B</p>
+            <div className={`border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] p-3 hover:bg-blue-200 transition-colors ${index % 2 === 0 ? 'bg-white' : 'bg-yellow-100'}`}>
+              <h2 className="text-xl font-black mb-2">{asset.name} <span className="text-lg font-bold">({asset.symbol})</span></h2>
+              <p className="text-base font-bold">Rank: {asset.rank}</p>
+              <p className="text-sm">Price: ${parseFloat(asset.priceUsd).toFixed(2)}</p>
+              <p className="text-sm">MCap: ${(parseFloat(asset.marketCapUsd) / 1e9).toFixed(2)}B</p>
             </div>
           </Link>
         ))}
