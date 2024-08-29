@@ -6,6 +6,7 @@ import { navItems } from "./nav-items";
 
 const queryClient = new QueryClient();
 
+// Deployment is currently disabled
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
